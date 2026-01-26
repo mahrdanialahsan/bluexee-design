@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Classes - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Group Classes Hero Section -->
+    <section class="group-classes-hero">
+        <div class="container">
+            <h1 class="group-classes-title">GROUP CLASSES</h1>
+        </div>
+    </section>
+
+    <!-- Online Group Classes Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6">
+                    <h2 class="section-title mb-3">Online Group Classes</h2>
+                    <p class="mb-3">Join interactive group classes and learn together with students from around the world. Our group classes offer a collaborative learning environment where you can practice, share ideas, and grow together.</p>
+                    <p class="mb-3">Experience the benefits of learning in a group setting with expert instructors guiding you through each lesson. Connect with peers, participate in discussions, and achieve your learning goals together.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Interactive group sessions</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Expert instructors</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Flexible scheduling</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Affordable pricing</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="images/group-class.jpg" alt="Online Group Class" class="img-fluid" style="border-radius: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section-group">
+        <div class="container">
+            <div class="row g-2 filters-row-group">
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>I want classes for</option>
+                        <option>Languages</option>
+                        <option>Programming</option>
+                        <option>Business</option>
+                        <option>Test Preparation</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>Select Levels</option>
+                        <option>Beginner (A1)</option>
+                        <option>Elementary (A2)</option>
+                        <option>Intermediate (B1)</option>
+                        <option>Upper Intermediate (B2)</option>
+                        <option>Advanced (C1)</option>
+                        <option>Proficient (C2)</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>Select a Day</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>Select Time</option>
+                        <option>Morning (06:00 - 12:00)</option>
+                        <option>Afternoon (12:00 - 18:00)</option>
+                        <option>Evening (18:00 - 24:00)</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>Select Lesson Type</option>
+                        <option>One-time class</option>
+                        <option>Weekly class</option>
+                        <option>Monthly class</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <select class="form-select">
+                        <option>Instruction Language</option>
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                        <option>German</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row g-2 mt-2">
+                <div class="col-12 col-md-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <label class="small text-white mb-0">Price Range:</label>
+                        <input type="range" class="form-range flex-grow-1" min="1" max="50" value="25" id="priceRange">
+                        <span class="text-white small" id="priceValue">€1 - €25</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <select class="form-select">
+                        <option>Sort By</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Time: Earliest First</option>
+                        <option>Time: Latest First</option>
+                        <option>Most Popular</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works & Who is it for Tabs -->
+    <section class="section">
+        <div class="container">
+            <ul class="nav nav-tabs group-classes-tabs mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="how-it-works-tab" data-bs-toggle="tab" data-bs-target="#how-it-works" type="button" role="tab">
+                        How does it work
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="who-is-it-for-tab" data-bs-toggle="tab" data-bs-target="#who-is-it-for" type="button" role="tab">
+                        Who is it for
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="how-it-works" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h4 class="mb-3">How Group Classes Work</h4>
+                            <p>Our group classes are designed to provide an interactive and engaging learning experience. Here's how it works:</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>1. Browse Classes:</strong> Explore our wide range of group classes available in different languages, levels, and time slots.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>2. Book Your Spot:</strong> Select a class that fits your schedule and book your spot. Classes have limited seats to ensure quality interaction.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>3. Join the Session:</strong> On the scheduled time, join the online classroom through our platform. All you need is a device with internet connection.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>4. Learn Together:</strong> Participate in interactive lessons, group discussions, and collaborative activities with your classmates and instructor.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mb-3">Benefits of Group Learning</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Learn from peer interactions</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Practice speaking in a supportive environment</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Get feedback from both instructor and peers</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>More affordable than private lessons</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Build confidence through group participation</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Meet like-minded learners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="who-is-it-for" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h4 class="mb-3">Perfect For Everyone</h4>
+                            <p>Our group classes are designed for learners of all backgrounds and goals:</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>Beginners:</strong> Start your learning journey in a supportive group environment where everyone is at a similar level.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Intermediate Learners:</strong> Enhance your skills through practice and interaction with peers at your level.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Advanced Students:</strong> Refine your abilities and maintain fluency through engaging group discussions.
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Busy Professionals:</strong> Flexible scheduling allows you to fit learning into your busy lifestyle.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mb-3">Learning Goals</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Improve conversational skills</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Prepare for language exams</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Learn programming languages</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Develop business communication</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Build professional networks</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Achieve personal growth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Group Classes Listing -->
+    <section class="section find-tutor-main">
+        <div class="container">
+            <h3 class="mb-4">Available Group Classes</h3>
+            
+            <!-- Group Class Card 1 -->
+            <div class="group-class-card mb-4">
+                <!-- Top Row: Time, Subject, Class Type, Attending -->
+                <div class="group-class-header mb-3">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
+                        <span class="group-class-time-text">Mon 18:00 - 19:00</span>
+                        <span class="group-class-subject"><i class="bi bi-plus"></i> English, Beginner (A1)</span>
+                        <span class="group-class-type">One-time class: 2 Classes</span>
+                        <span class="group-class-attending ms-auto">
+                            <i class="bi bi-people"></i> 0 Attending
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Middle Section: Title, Language, Description -->
+                <div class="group-class-content mb-3">
+                    <h3 class="group-class-title mb-2">English</h3>
+                    <p class="small mb-3"><strong>Instruction Language:</strong> English</p>
+                    <div class="d-flex align-items-start gap-2 mb-3">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 24px; margin-top: 2px;">
+                        <span class="text-warning fw-bold">BLUEXEE</span>
+                        <p class="small mb-0 flex-grow-1">I want my students to feel supported and comfortable speaking with me. Don't be afraid to make mistakes, as they are the best way to learn!</p>
+                    </div>
+                    <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                </div>
+                
+                <!-- Bottom Row: Instructor, Rating, Price, Button -->
+                <div class="group-class-footer">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="images/tutor-thumbnail.jpg" alt="Alexandra" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                            <span class="small">Group Class with Alexandra</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-1">
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <span class="small ms-1">5.0</span>
+                            </div>
+                            <span class="group-class-stat"><i class="bi bi-person"></i> 0 Lessons</span>
+                            <span class="group-class-stat"><i class="bi bi-chat-quote"></i> 1 Reviews</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="text-end">
+                                <strong class="d-block">€ 6</strong>
+                                <span class="small">/ Class</span>
+                            </div>
+                            <button class="btn btn-yellow">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Class Card 2 -->
+            <div class="group-class-card mb-4">
+                <!-- Top Row: Time, Subject, Class Type, Attending -->
+                <div class="group-class-header mb-3">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
+                        <span class="group-class-time-text">Wed 10:00 - 11:00</span>
+                        <span class="group-class-subject"><i class="bi bi-plus"></i> Spanish, Intermediate (B1)</span>
+                        <span class="group-class-type">Weekly class: 4 Classes</span>
+                        <span class="group-class-attending ms-auto">
+                            <i class="bi bi-people"></i> 12 Attending
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Middle Section: Title, Language, Description -->
+                <div class="group-class-content mb-3">
+                    <h3 class="group-class-title mb-2">Spanish</h3>
+                    <p class="small mb-3"><strong>Instruction Language:</strong> Spanish</p>
+                    <div class="d-flex align-items-start gap-2 mb-3">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 24px; margin-top: 2px;">
+                        <span class="text-warning fw-bold">BLUEXEE</span>
+                        <p class="small mb-0 flex-grow-1">Intermediate Spanish group class focusing on conversation practice and grammar. Perfect for students who want to improve their speaking confidence.</p>
+                    </div>
+                    <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                </div>
+                
+                <!-- Bottom Row: Instructor, Rating, Price, Button -->
+                <div class="group-class-footer">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="bg-primary text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 40px; height: 40px; font-weight: 700; font-size: 0.875rem;">CM</div>
+                            <span class="small">Group Class with Carlos M.</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-1">
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <span class="small ms-1">4.8</span>
+                            </div>
+                            <span class="group-class-stat"><i class="bi bi-person"></i> 5 Lessons</span>
+                            <span class="group-class-stat"><i class="bi bi-chat-quote"></i> 8 Reviews</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="text-end">
+                                <strong class="d-block">€ 20</strong>
+                                <span class="small">/ Class</span>
+                            </div>
+                            <button class="btn btn-yellow">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Class Card 3 -->
+            <div class="group-class-card mb-4">
+                <!-- Top Row: Time, Subject, Class Type, Attending -->
+                <div class="group-class-header mb-3">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
+                        <span class="group-class-time-text">Fri 18:00 - 19:00</span>
+                        <span class="group-class-subject"><i class="bi bi-plus"></i> Python Programming, Beginner</span>
+                        <span class="group-class-type">Monthly class: 8 Classes</span>
+                        <span class="group-class-attending ms-auto">
+                            <i class="bi bi-people"></i> 15 Attending
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Middle Section: Title, Language, Description -->
+                <div class="group-class-content mb-3">
+                    <h3 class="group-class-title mb-2">Python Programming</h3>
+                    <p class="small mb-3"><strong>Instruction Language:</strong> English</p>
+                    <div class="d-flex align-items-start gap-2 mb-3">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 24px; margin-top: 2px;">
+                        <span class="text-warning fw-bold">BLUEXEE</span>
+                        <p class="small mb-0 flex-grow-1">Learn Python programming from scratch in this comprehensive group class. Perfect for beginners who want to start their coding journey with peers.</p>
+                    </div>
+                    <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                </div>
+                
+                <!-- Bottom Row: Instructor, Rating, Price, Button -->
+                <div class="group-class-footer">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="bg-primary text-white d-flex align-items-center justify-content-center rounded-circle" style="width: 40px; height: 40px; font-weight: 700; font-size: 0.875rem;">JS</div>
+                            <span class="small">Group Class with John S.</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-1">
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <span class="small ms-1">4.9</span>
+                            </div>
+                            <span class="group-class-stat"><i class="bi bi-person"></i> 12 Lessons</span>
+                            <span class="group-class-stat"><i class="bi bi-chat-quote"></i> 25 Reviews</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="text-end">
+                                <strong class="d-block">€ 25</strong>
+                                <span class="small">/ Class</span>
+                            </div>
+                            <button class="btn btn-yellow">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h2 class="section-title">Subscribe To Our <span class="text-dark">Newsletter</span></h2>
+            <p class="mb-4">Keep informed about our latest news, activities and developments. Sign up now and get regular updates!</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="form-control" placeholder="Please specify your valid email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 30px; margin-right: 0.5rem;" />
+                    </div>
+                    <p class="text-white mb-3" style="opacity: 0.9;">Helping students learn better with expert tutors worldwide.</p>
+                    <h5>Contact Information</h5>
+                    <p class="text-white mb-2" style="opacity: 0.9;">📍 8 The Green, Dover, DE 19901, United States</p>
+                    <p class="text-white" style="opacity: 0.9;">✉️ info@bluexee.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="find-tutor.html">Find a Tutor</a>
+                    <a href="group-classes.html">Group Classes</a>
+                    <a href="index.html#how-it-works">How it works</a>
+                    <a href="mailto:info@bluexee.com">Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Sign Up</a>
+                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="faqs.html">FAQs</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">Bluexee © Copyright 2024</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // Price range slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+            if (priceRange && priceValue) {
+                priceRange.addEventListener('input', function() {
+                    const maxPrice = this.value;
+                    priceValue.textContent = `€1 - €${maxPrice}`;
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>

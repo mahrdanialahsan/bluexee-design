@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Tutors - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Find Tutor Hero Section -->
+    <section class="find-tutor-hero">
+        <div class="container">
+            <h1 class="find-tutor-title">Online tutors & teachers for <span class="highlight">private lessons</span></h1>
+            
+            <!-- I Want to Learn Dropdown -->
+            <div class="want-to-learn-section mb-4">
+                <label for="wantToLearn" class="form-label text-white mb-2">I want to learn</label>
+                <select class="form-select form-select-lg" id="wantToLearn">
+                    <option value="">Select a language or subject...</option>
+                    <optgroup label="Languages">
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>Chinese</option>
+                        <option>French</option>
+                        <option>German</option>
+                        <option>Dutch</option>
+                        <option>Arabic</option>
+                        <option>Russian</option>
+                        <option>Portuguese</option>
+                        <option>Hindi</option>
+                        <option>Bengali</option>
+                        <option>Japanese</option>
+                        <option>Italian</option>
+                        <option>Turkish</option>
+                        <option>Korean</option>
+                        <option>Greek</option>
+                        <option>Swedish</option>
+                        <option>Polish</option>
+                        <option>Thai</option>
+                        <option>Vietnamese</option>
+                        <option>Persian (Farsi)</option>
+                        <option>Indonesian</option>
+                    </optgroup>
+                    <optgroup label="School Subjects">
+                        <option>Math</option>
+                        <option>Physics</option>
+                        <option>Chemistry</option>
+                        <option>Biology</option>
+                        <option>History</option>
+                        <option>Geography</option>
+                        <option>Philosophy</option>
+                        <option>Economics</option>
+                        <option>Computer Science</option>
+                        <option>Accounting</option>
+                        <option>Latin</option>
+                        <option>Statistics</option>
+                    </optgroup>
+                    <optgroup label="Programming Languages">
+                        <option>Data Science</option>
+                        <option>Artificial Intelligence</option>
+                        <option>Web Development</option>
+                        <option>Software Development</option>
+                        <option>Java</option>
+                        <option>C</option>
+                        <option>C++</option>
+                        <option>C#</option>
+                        <option>HTML</option>
+                        <option>CSS</option>
+                        <option>XML</option>
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>PHP</option>
+                        <option>MySQL</option>
+                        <option>NodeJS</option>
+                        <option>Matlab</option>
+                        <option>Visual Basic</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <!-- Filters Section -->
+            <div class="filters-section">
+                <div class="row g-2 filters-row">
+                    <div class="col-12 col-md-2">
+                        <select class="form-select">
+                            <option>Languages</option>
+                            <option>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Arabic</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select">
+                            <option>Teacher also spoke</option>
+                            <option>English</option>
+                            <option>Spanish</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select">
+                            <option>Teacher from</option>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select">
+                            <option>Teacher Types</option>
+                            <option>Professional Teacher</option>
+                            <option>Tutor</option>
+                            <option>Native Speaker</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <select class="form-select">
+                            <option>Lesson Time</option>
+                            <option>Morning</option>
+                            <option>Afternoon</option>
+                            <option>Evening</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <button class="btn btn-outline-light btn-filter-clear w-100">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section find-tutor-main">
+        <div class="container">
+            <!-- Info Bar -->
+            <div class="row align-items-center mb-4 find-tutor-info-bar">
+                <div class="col-12 col-md-6 mb-3 mb-md-0 text-center text-md-start">
+                    <button class="btn btn-link text-decoration-none p-0" data-bs-toggle="modal" data-bs-target="#howItWorksModal">
+                        <i class="bi bi-info-circle me-2"></i>How BLUEXEE works
+                    </button>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <div class="input-group find-tutor-search mx-auto mx-md-0 ms-md-auto">
+                        <input type="text" class="form-control" placeholder="Search by keyword...">
+                        <button class="btn btn-outline-primary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Header -->
+            <div class="row align-items-center mb-4 find-tutor-results-header">
+                <div class="col-12 col-md-6 mb-3 mb-md-0 text-center text-md-start">
+                    <h3 class="mb-0">3 Spanish, Arabic teachers available</h3>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select find-tutor-price-select mx-auto mx-md-0 ms-md-auto">
+                        <option>Price</option>
+                        <option>Price: highest first</option>
+                        <option>Price: lowest first</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tutor Cards -->
+            <div class="tutor-listing-cards">
+                <!-- Tutor Card 1 -->
+                <div class="tutor-listing-card">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="tutor-profile-section">
+                                <div class="d-flex align-items-start gap-3 mb-3">
+                                    <div class="tutor-image-section">
+                                        <img src="images/tutor-thumbnail.jpg" alt="Luis M. H" class="tutor-profile-img mb-2">
+                                        <div class="stars mb-2 text-center">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="tutor-stats text-center">
+                                            <div class="small mb-1"><i class="bi bi-people me-1"></i>5 Students</div>
+                                            <div class="small mb-1"><i class="bi bi-book me-1"></i>10 Lessons</div>
+                                            <div class="small"><i class="bi bi-star me-1"></i>9 Reviews</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 tutor-profile-content">
+                                        <div class="d-flex align-items-center gap-2 mb-3 tutor-name-row">
+                                            <h4 class="mb-0 tutor-name">Luis M. H</h4>
+                                            <i class="bi bi-mortarboard-fill text-warning"></i>
+                                            <span class="small">Spanish Tutor</span>
+                                        </div>
+                                        <p class="small mb-3"><strong>Certified Spanish teacher, with experience in universities and with foreign speakers :) more than 6 years of</strong></p>
+                                        <p class="small mb-3"><strong>Speaks:</strong> Spanish Native, Spanish Fluent</p>
+                                        <p class="small text-muted mb-3">Hi! I'm Luis, a certified Spanish teacher with more than 6 years of experience teaching Spanish to students from all over the world...</p>
+                                        <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                                        <div class="mt-3">
+                                            <p class="small mb-1"><strong>Specialities:</strong> Conversational, For Kids, Special Needs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tutor-booking-section">
+                                <div class="booking-price-actions mb-3">
+                                    <div class="booking-price">
+                                        <h3 class="text-primary mb-0">$10</h3>
+                                        <p class="small text-muted mb-0">Per Lesson</p>
+                                    </div>
+                                    <div class="booking-buttons">
+                                        <button class="btn btn-yellow btn-sm">Book Trial</button>
+                                        <button class="btn btn-outline-primary btn-sm">Check Availability</button>
+                                    </div>
+                                </div>
+                                <div class="video-thumbnail mt-3">
+                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/880846463?h=3680fd1510" width="100%" height="200" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 0;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 2 -->
+                <div class="tutor-listing-card">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="tutor-profile-section">
+                                <div class="d-flex align-items-start gap-3 mb-3">
+                                    <div class="tutor-image-section">
+                                        <div class="tutor-profile-img bg-primary text-white d-flex align-items-center justify-content-center mb-2" style="width: 100px; height: 100px; border-radius: 50%; font-weight: 700; font-size: 2rem;">LG</div>
+                                        <div class="stars mb-2 text-center">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="tutor-stats text-center">
+                                            <div class="small mb-1"><i class="bi bi-people me-1"></i>8 Students</div>
+                                            <div class="small mb-1"><i class="bi bi-book me-1"></i>15 Lessons</div>
+                                            <div class="small"><i class="bi bi-star me-1"></i>12 Reviews</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 tutor-profile-content">
+                                        <div class="d-flex align-items-center gap-2 mb-3 tutor-name-row">
+                                            <h4 class="mb-0 tutor-name">Leda G.</h4>
+                                            <i class="bi bi-mortarboard-fill text-warning"></i>
+                                            <span class="small">Arabic Tutor</span>
+                                        </div>
+                                        <p class="small mb-3"><strong>Experienced Arabic teacher with a passion for teaching and helping students achieve their language goals.</strong></p>
+                                        <p class="small mb-3"><strong>Speaks:</strong> Arabic Native, English C1</p>
+                                        <p class="small text-muted mb-3">Hello! I'm Leda, an experienced Arabic teacher dedicated to making learning Arabic fun and accessible...</p>
+                                        <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                                        <div class="mt-3">
+                                            <p class="small mb-1"><strong>Specialities:</strong> Conversational, For beginners, Business, Intensive</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tutor-booking-section">
+                                <div class="booking-price-actions mb-3">
+                                    <div class="booking-price">
+                                        <h3 class="text-primary mb-0">$12</h3>
+                                        <p class="small text-muted mb-0">Per Lesson</p>
+                                    </div>
+                                    <div class="booking-buttons">
+                                        <button class="btn btn-yellow btn-sm">Book Trial</button>
+                                        <button class="btn btn-outline-primary btn-sm">Check Availability</button>
+                                    </div>
+                                </div>
+                                <div class="video-thumbnail mt-3">
+                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/880846463?h=3680fd1510" width="100%" height="200" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 0;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 3 -->
+                <div class="tutor-listing-card">
+                    <div class="row g-4">
+                        <div class="col-md-8">
+                            <div class="tutor-profile-section">
+                                <div class="d-flex align-items-start gap-3 mb-3">
+                                    <div class="tutor-image-section">
+                                        <div class="tutor-profile-img bg-primary text-white d-flex align-items-center justify-content-center mb-2" style="width: 100px; height: 100px; border-radius: 50%; font-weight: 700; font-size: 2rem;">DM</div>
+                                        <div class="stars mb-2 text-center">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="tutor-stats text-center">
+                                            <div class="small mb-1"><i class="bi bi-people me-1"></i>12 Students</div>
+                                            <div class="small mb-1"><i class="bi bi-book me-1"></i>25 Lessons</div>
+                                            <div class="small"><i class="bi bi-star me-1"></i>18 Reviews</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 tutor-profile-content">
+                                        <div class="d-flex align-items-center gap-2 mb-3 tutor-name-row">
+                                            <h4 class="mb-0 tutor-name">Domingo M.</h4>
+                                            <i class="bi bi-mortarboard-fill text-warning"></i>
+                                            <span class="small">Spanish & Arabic Tutor</span>
+                                        </div>
+                                        <p class="small mb-3"><strong>Professional Spanish and Arabic teacher with extensive experience in online teaching.</strong></p>
+                                        <p class="small mb-3"><strong>Speaks:</strong> Spanish Native, Arabic Native, English B2</p>
+                                        <p class="small text-muted mb-3">Welcome! I'm Domingo, a bilingual teacher specializing in Spanish and Arabic. I have been teaching online for over 5 years...</p>
+                                        <a href="#" class="text-primary text-decoration-none small">View Details</a>
+                                        <div class="mt-3">
+                                            <p class="small mb-1"><strong>Specialities:</strong> Business, Test Preparation, For beginners, Intensive</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tutor-booking-section">
+                                <div class="booking-price-actions mb-3">
+                                    <div class="booking-price">
+                                        <h3 class="text-primary mb-0">$15</h3>
+                                        <p class="small text-muted mb-0">Per Lesson</p>
+                                    </div>
+                                    <div class="booking-buttons">
+                                        <button class="btn btn-yellow btn-sm">Book Trial</button>
+                                        <button class="btn btn-outline-primary btn-sm">Check Availability</button>
+                                    </div>
+                                </div>
+                                <div class="video-thumbnail mt-3">
+                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/880846463?h=3680fd1510" width="100%" height="200" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 0;"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h2 class="section-title">Subscribe To Our <span class="text-dark">Newsletter</span></h2>
+            <p class="mb-4">Keep informed about our latest news, activities and developments. Sign up now and get regular updates!</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="form-control" placeholder="Please specify your valid email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 30px; margin-right: 0.5rem;" />
+                    </div>
+                    <p class="text-white mb-3" style="opacity: 0.9;">Helping students learn better with expert tutors worldwide.</p>
+                    <h5>Contact Information</h5>
+                    <p class="text-white mb-2" style="opacity: 0.9;">📍 8 The Green, Dover, DE 19901, United States</p>
+                    <p class="text-white" style="opacity: 0.9;">✉️ info@bluexee.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="find-tutor.html">Find a Tutor</a>
+                    <a href="group-classes.html">Group Classes</a>
+                    <a href="index.html#how-it-works">How it works</a>
+                    <a href="mailto:info@bluexee.com">Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Sign Up</a>
+                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="faqs.html">FAQs</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">Bluexee © Copyright 2024</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- How It Works Modal -->
+    <div class="modal fade" id="howItWorksModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">How BLUEXEE works</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>HOW TO CHOOSE AN IDEAL TUTOR</h6>
+                    <p>You can use filters to find the perfect tutor for you. Additionally, you can view the tutor's profile, watch the videos, read reviews and ratings from other students to decide.</p>
+                    
+                    <h6>HOW MANY HOURS CAN YOU BOOK AS A PACKAGE?</h6>
+                    <p>As a first step, you can buy your 50 minutes - trial lesson with a tutor to see if you like him or her. If you like the tutor, you can buy a set of 6, 12, 20 or 40 hours with them. One lesson takes 50 minutes.</p>
+                    
+                    <h6>HOW DO YOU PAY FOR LESSONS?</h6>
+                    <p>You can pay for your lessons with a credit card or via PayPal. If you need to switch tutors, you can do it easily in your account with the feature 'Transfer hours'. A refund for unused lessons is possible, too.</p>
+                    
+                    <h6>WHERE DO THE LESSONS TAKE PLACE?</h6>
+                    <p>You will meet your tutor online in the BLUEXEE classroom. In your account under 'My lessons' you can enter the classroom by clicking 'Enter classroom'.</p>
+                    
+                    <h6>CAN YOU CANCEL OR RESCHEDULE LESSONS?</h6>
+                    <p>You can cancel or reschedule any lesson for free up to 5 hours before it starts. This also applies to the teacher.</p>
+                    
+                    <h6>WHEN CAN YOU GET FREE REPLACEMENT?</h6>
+                    <p>You will get a free replacement in case you have any issues with your tutor. You can switch tutors in your dashboard or just contact BLUEXEE Support after the lesson.</p>
+                    
+                    <h6>HOW DO WE VERIFY OUR TUTORS?</h6>
+                    <p>Each tutor profile is checked manually and then approved. We verify identity documents, tutor certificates and diplomas. We only show you tutors who have passed this strict selection process.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

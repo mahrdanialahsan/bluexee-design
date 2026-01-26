@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Hero Section -->
+    <section class="register-hero">
+        <div class="container">
+            <h1 class="register-title">STUDENT REGISTRATION</h1>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <h2 class="section-title text-center mb-4">Student Registration</h2>
+                    
+                    <form class="registration-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="timezone" class="form-label">Timezone:</label>
+                            <select class="form-select" id="timezone" required>
+                                <option value="">Select your timezone</option>
+                                <option value="(GMT -12:00) International Date Line West">(GMT -12:00) International Date Line West</option>
+                                <option value="(GMT -11:00) Midway Island, Samoa">(GMT -11:00) Midway Island, Samoa</option>
+                                <option value="(GMT -10:00) Hawaii">(GMT -10:00) Hawaii</option>
+                                <option value="(GMT -09:00) Alaska">(GMT -09:00) Alaska</option>
+                                <option value="(GMT -08:00) Pacific Time (US & Canada)">(GMT -08:00) Pacific Time (US & Canada)</option>
+                                <option value="(GMT -07:00) Mountain Time (US & Canada)">(GMT -07:00) Mountain Time (US & Canada)</option>
+                                <option value="(GMT -06:00) Central Time (US & Canada)">(GMT -06:00) Central Time (US & Canada)</option>
+                                <option value="(GMT -05:00) Eastern Time (US & Canada)">(GMT -05:00) Eastern Time (US & Canada)</option>
+                                <option value="(GMT -04:00) Atlantic Time (Canada)">(GMT -04:00) Atlantic Time (Canada)</option>
+                                <option value="(GMT -03:00) Buenos Aires, Georgetown">(GMT -03:00) Buenos Aires, Georgetown</option>
+                                <option value="(GMT -02:00) Mid-Atlantic">(GMT -02:00) Mid-Atlantic</option>
+                                <option value="(GMT -01:00) Azores">(GMT -01:00) Azores</option>
+                                <option value="(GMT +00:00) Greenwich Mean Time, London">(GMT +00:00) Greenwich Mean Time, London</option>
+                                <option value="(GMT +01:00) Amsterdam, Berlin, Rome">(GMT +01:00) Amsterdam, Berlin, Rome</option>
+                                <option value="(GMT +02:00) Athens, Bucharest, Istanbul">(GMT +02:00) Athens, Bucharest, Istanbul</option>
+                                <option value="(GMT +03:00) Baghdad, Kuwait, Riyadh">(GMT +03:00) Baghdad, Kuwait, Riyadh</option>
+                                <option value="(GMT +04:00) Abu Dhabi, Muscat">(GMT +04:00) Abu Dhabi, Muscat</option>
+                                <option value="(GMT +05:00) Asia/Karachi" selected>(GMT +05:00) Asia/Karachi</option>
+                                <option value="(GMT +05:30) India, Sri Lanka">(GMT +05:30) India, Sri Lanka</option>
+                                <option value="(GMT +06:00) Almaty, Dhaka">(GMT +06:00) Almaty, Dhaka</option>
+                                <option value="(GMT +07:00) Bangkok, Hanoi, Jakarta">(GMT +07:00) Bangkok, Hanoi, Jakarta</option>
+                                <option value="(GMT +08:00) Beijing, Perth, Singapore">(GMT +08:00) Beijing, Perth, Singapore</option>
+                                <option value="(GMT +09:00) Tokyo, Seoul">(GMT +09:00) Tokyo, Seoul</option>
+                                <option value="(GMT +10:00) Brisbane, Melbourne, Sydney">(GMT +10:00) Brisbane, Melbourne, Sydney</option>
+                                <option value="(GMT +11:00) Magadan, Solomon Islands">(GMT +11:00) Magadan, Solomon Islands</option>
+                                <option value="(GMT +12:00) Auckland, Wellington">(GMT +12:00) Auckland, Wellington</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-yellow w-100 mb-3">Register</button>
+                        
+                        <div class="text-center mb-3">
+                            <p class="small mb-0">Already have an account? <a href="login.html" class="text-primary text-decoration-none">Login Now</a></p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="small text-muted">By clicking Register or Sign in with, you agree to BLUEXEE <a href="terms-and-conditions.html" class="text-primary text-decoration-none">Term of Use</a> and <a href="terms-and-conditions.html" class="text-primary text-decoration-none">Pricing Policy</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h2 class="section-title">Subscribe To Our <span class="text-dark">Newsletter</span></h2>
+            <p class="mb-4">Keep informed about our latest news, activities and developments. Sign up now and get regular updates!</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="form-control" placeholder="Please specify a valid email address" required>
+                <button type="submit" class="btn">Subscribe!</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 30px; margin-right: 0.5rem;" />
+                    </div>
+                    <p class="text-white mb-3" style="opacity: 0.9;">Helping students learn better with expert tutors worldwide.</p>
+                    <h5>Contact Information</h5>
+                    <p class="text-white mb-2" style="opacity: 0.9;">📍 8 The Green, Dover, DE 19901, United States</p>
+                    <p class="text-white" style="opacity: 0.9;">✉️ info@bluexee.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="find-tutor.html">Find a Tutor</a>
+                    <a href="group-classes.html">Group Classes</a>
+                    <a href="index.html#how-it-works">How it works</a>
+                    <a href="mailto:info@bluexee.com">Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Sign Up</a>
+                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                    <a href="terms-and-conditions.html">Pricing Policy</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="faqs.html">FAQs</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">Bluexee © Copyright 2024</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLUEXEE - Find The Best Tutor For You</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto hero-content text-center">
+                    <h1 class="hero-title">Find The Best Tutor For You</h1>
+                    <p class="hero-subtitle">Learn languages and subjects online with qualified tutors from around the world.<br>Flexible schedules. One-on-one lessons. Real progress.</p>
+                    
+                    <div class="search-box">
+                        <input type="text" class="form-control border-0" placeholder="Search for tutors, subjects, or languages...">
+                        <button class="btn btn-yellow">
+                            <i class="bi bi-search me-2"></i>Search
+                        </button>
+                    </div>
+                    
+                    <div class="subject-tags justify-content-center">
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">German</span>
+                        <span class="subject-tag">French</span>
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                    </div>
+                    
+                    <div class="trust-badges justify-content-center">
+                        <div class="trust-badge">
+                            <i class="bi bi-star-fill"></i>
+                            <span>4.9/5 Student Rating</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-globe"></i>
+                            <span>Tutors from 50+ Countries</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Verified Teachers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section">
+        <div class="container">
+            <p class="section-subtitle text-center">Languages We Offer</p>
+            <h2 class="section-title text-center">Learn Any <span class="highlight">Language</span> You Choose</h2>
+            
+            <div class="language-slider-wrapper">
+                <button class="slider-nav prev" onclick="scrollLanguages('left')">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="language-slider" id="languageSlider">
+                    <div class="language-item">
+                        <div class="flag">🇬🇧</div>
+                        <h4>English</h4>
+                        <p>6 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇩🇪</div>
+                        <h4>German</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇪🇸</div>
+                        <h4>Spanish</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇫🇷</div>
+                        <h4>French</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇯🇵</div>
+                        <h4>Japanese</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇮🇹</div>
+                        <h4>Italian</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇨🇳</div>
+                        <h4>Chinese</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                    <div class="language-item">
+                        <div class="flag">🇸🇦</div>
+                        <h4>Arabic</h4>
+                        <p>5 Teachers</p>
+                    </div>
+                </div>
+                <button class="slider-nav next" onclick="scrollLanguages('right')">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section advantages-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-3">
+                    <p class="section-subtitle mb-1">Connect with the world</p>
+                    <h2 class="section-title mb-2">Advantages with <span class="highlight">BLUEXEE</span></h2>
+                    <p class="text-muted mb-0">Experience personalized learning with our comprehensive platform designed for your success</p>
+                </div>
+            </div>
+            
+            <div class="row g-3 mt-1">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3>One-to-one lesson</h3>
+                        <p>Personalized and targeted trainings, tailored to your individual needs. You get more speaking time and attention to learn.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h3>Qualified teachers</h3>
+                        <p>Take the opportunity to learn with professional teachers. You have the possibility to change your teacher at any time.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h3>Flexibility</h3>
+                        <p>Lessons are available 24/7 - every day and at every time, so you can adapt your learning to your busy schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-us" class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">About <span class="highlight">BLUEXEE</span></h2>
+                    <p class="section-description">BLUEXEE is an online platform that offers the opportunity to learn languages or programming through live classes, from anywhere in the world, at any time, and from any device. BLUEXEE provides lessons for every budget.</p>
+                    <p>Our platform connects students with qualified tutors worldwide, making quality education accessible and flexible. Whether you're looking to learn a new language, improve academic skills, or master programming, BLUEXEE is your gateway to personalized learning.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4">
+                            <img src="images/about-image.png" alt="Students learning" class="img-fluid shadow-lg" style="width: 100%; height: auto; object-fit: cover;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section dark-section">
+        <div class="container">
+            <p class="section-subtitle text-center">Simple Process</p>
+            <h2 class="section-title text-center">How it <span class="highlight">Works</span></h2>
+            
+            <div class="row g-3 mt-3">
+                <div class="col-md-6 col-lg-3 d-flex">
+                    <div class="step-card w-100">
+                        <div class="step-number">1</div>
+                        <i class="bi bi-search" style="font-size: 2.5rem; color: var(--accent-yellow); margin-bottom: 1rem;"></i>
+                        <h4>Find your tutor</h4>
+                        <p>Search in our database for a wide range of suitable tutors just right for you.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex">
+                    <div class="step-card w-100">
+                        <div class="step-number">2</div>
+                        <i class="bi bi-calendar-event" style="font-size: 2.5rem; color: var(--accent-yellow); margin-bottom: 1rem;"></i>
+                        <h4>Choose your time</h4>
+                        <p>Find a suitable time slot according to your busy schedule, take lessons anytime.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex">
+                    <div class="step-card w-100">
+                        <div class="step-number">3</div>
+                        <i class="bi bi-check-circle" style="font-size: 2.5rem; color: var(--accent-yellow); margin-bottom: 1rem;"></i>
+                        <h4>Book your lesson</h4>
+                        <p>Book your lessons and pay via credit card or PayPal.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex">
+                    <div class="step-card w-100">
+                        <div class="step-number">4</div>
+                        <i class="bi bi-headset" style="font-size: 2.5rem; color: var(--accent-yellow); margin-bottom: 1rem;"></i>
+                        <h4>Enter your virtual classroom</h4>
+                        <p>Enjoy your online lesson, structure your lesson with your tutor according to your needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="find-tutor.html" class="btn btn-yellow btn-lg">Find Online Tutor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Subjects Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/popular-skills.jpg" alt="Popular Skills" class="img-fluid shadow-lg" style="width: 100%; height: auto; object-fit: cover;" />
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Popular <span class="highlight">Subjects</span></h2>
+                    <p class="section-description">Explore our wide range of subjects and programming languages. Learn from expert tutors in various fields.</p>
+                    
+                    <!-- Major Subjects Slider -->
+                    <div class="subject-slider-wrapper mt-2">
+                        <button class="slider-nav prev" onclick="scrollSubjects('left')">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <div class="subject-slider" id="subjectSlider">
+                            <div class="subject-card">
+                                <i class="bi bi-gear-fill"></i>
+                                <h4>Software Development</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-graph-up-arrow"></i>
+                                <h4>Data Science</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-code-slash"></i>
+                                <h4>Web Development</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-cpu-fill"></i>
+                                <h4>Artificial Intelligence</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-calculator-fill"></i>
+                                <h4>Mathematics</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <h4>Physics</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-flask"></i>
+                                <h4>Chemistry</h4>
+                            </div>
+                            <div class="subject-card">
+                                <i class="bi bi-flower2"></i>
+                                <h4>Biology</h4>
+                            </div>
+                        </div>
+                        <button class="slider-nav next" onclick="scrollSubjects('right')">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Programming Languages Slider -->
+            <div class="programming-slider-wrapper">
+                <button class="slider-nav prev" onclick="scrollProgramming('left')">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="programming-slider" id="programmingSlider">
+                    <div class="programming-card">
+                        <span class="lang-icon">💾</span>
+                        <h4>MySQL</h4>
+                        <p>0 Teachers</p>
+                    </div>
+                    <div class="programming-card">
+                        <span class="lang-icon">🐘</span>
+                        <h4>PHP</h4>
+                        <p>1 Teacher</p>
+                    </div>
+                    <div class="programming-card">
+                        <span class="lang-icon">📘</span>
+                        <h4>Visual Basic</h4>
+                        <p>0 Teachers</p>
+                    </div>
+                    <div class="programming-card">
+                        <span class="lang-icon">🐍</span>
+                        <h4>Python</h4>
+                        <p>0 Teachers</p>
+                    </div>
+                    <div class="programming-card">
+                        <span class="lang-icon">⚡</span>
+                        <h4>C++</h4>
+                        <p>0 Teachers</p>
+                    </div>
+                    <div class="programming-card">
+                        <i class="bi bi-code-slash lang-icon"></i>
+                        <h4>Java</h4>
+                        <p>1 Teacher</p>
+                    </div>
+                    <div class="programming-card">
+                        <i class="bi bi-code-square lang-icon"></i>
+                        <h4>JavaScript</h4>
+                        <p>1 Teacher</p>
+                    </div>
+                </div>
+                <button class="slider-nav next" onclick="scrollProgramming('right')">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Tutor Section -->
+    <section id="become-tutor" class="section bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-4">
+                        <img src="images/looking-for-job.png" alt="Become a Tutor" class="img-fluid shadow-lg" style="width: 100%; height: auto; object-fit: cover;" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p class="section-subtitle">Tutor with BLUEXEE</p>
+                    <h2 class="section-title">Looking for a <span class="highlight">job?</span></h2>
+                    <p class="section-description">Teach students from around the world. Set your own schedule, choose your rates, and grow your career with BLUEXEE. Whether you're looking for flexible work or want to share your expertise, BLUEXEE offers the perfect platform for qualified tutors.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Set your own schedule</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Choose your rates</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Work from anywhere</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Grow your teaching career</li>
+                    </ul>
+                    <a href="become-a-tutor.html" class="btn btn-yellow btn-lg mt-3">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section dark-section">
+        <div class="container text-center">
+            <p class="section-subtitle">Anywhere, anytime - anyhow</p>
+            <h2 class="section-title">Lets get <span class="highlight">started today</span></h2>
+            <p class="section-description">Be part of the BLUEXEE community. Join thousands of students who trust BLUEXEE for quality online learning.</p>
+            <a href="find-tutor.html" class="btn btn-yellow btn-lg mt-3">Find Online Tutor</a>
+        </div>
+    </section>
+
+    <!-- Our Tutors Section -->
+    <section class="section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <p class="section-subtitle mb-2">Our Tutors</p>
+                    <h2 class="section-title mb-0">Meet our <span class="highlight">expert tutors</span></h2>
+                </div>
+                <a href="find-tutor.html" class="btn btn-yellow d-none d-md-block">See More Tutors</a>
+            </div>
+            
+            <div class="tutors-slider-wrapper">
+                <button class="slider-nav prev" onclick="scrollTutors('left')">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="tutors-slider" id="tutorsSlider">
+                    <div class="tutor-card">
+                        <div class="tutor-card-content">
+                            <div class="tutor-avatar" style="background-image: url('images/tutor-thumbnail.jpg'); background-size: cover; background-position: center;"></div>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h4>Jacqui J.</h4>
+                            <p class="subject">English Tutor</p>
+                        </div>
+                        <div class="tutor-details">
+                            <h4>Jacqui J.</h4>
+                            <p class="tutor-title">Professional Teacher</p>
+                            <p class="tutor-languages">Speaks: English Native, French C1</p>
+                            <p class="tutor-bio">Hi, my name is Jacqui. I'm a passionate English teacher with over 5 years of experience helping students improve their language skills. I specialize in conversational English and business English.</p>
+                            <p class="tutor-rate">$22 / HR</p>
+                        </div>
+                    </div>
+                    <div class="tutor-card">
+                        <div class="tutor-card-content">
+                            <div class="tutor-avatar">LC</div>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h4>Lirhanzo C.</h4>
+                            <p class="subject">English Tutor</p>
+                        </div>
+                        <div class="tutor-details">
+                            <h4>Lirhanzo C.</h4>
+                            <p class="tutor-title">Professional Teacher</p>
+                            <p class="tutor-languages">Speaks: English Native, Spanish B2</p>
+                            <p class="tutor-bio">Hello! I'm Lirhanzo, an enthusiastic English teacher dedicated to making learning fun and effective. I focus on pronunciation, grammar, and helping students gain confidence in speaking.</p>
+                            <p class="tutor-rate">$20 / HR</p>
+                        </div>
+                    </div>
+                    <div class="tutor-card">
+                        <div class="tutor-card-content">
+                            <div class="tutor-avatar" style="background-image: url('images/alexndar-testimonal-teacher.png'); background-size: cover; background-position: center;"></div>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h4>Alexandra C.</h4>
+                            <p class="subject">English Tutor</p>
+                        </div>
+                        <div class="tutor-details">
+                            <h4>Alexandra C.</h4>
+                            <p class="tutor-title">Professional Teacher</p>
+                            <p class="tutor-languages">Speaks: German Native, English C2, Turkish B1</p>
+                            <p class="tutor-bio">Hi, my name is Alexandra. I live in Frankfurt, Germany. I have been teaching English for over 7 years and I love helping students achieve their language goals. I offer personalized lessons tailored to your needs.</p>
+                            <p class="tutor-rate">$25 / HR</p>
+                        </div>
+                    </div>
+                    <div class="tutor-card">
+                        <div class="tutor-card-content">
+                            <div class="tutor-avatar">MG</div>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h4>Maggie G.</h4>
+                            <p class="subject">English Tutor</p>
+                        </div>
+                        <div class="tutor-details">
+                            <h4>Maggie G.</h4>
+                            <p class="tutor-title">Professional Teacher</p>
+                            <p class="tutor-languages">Speaks: English Native, German C1</p>
+                            <p class="tutor-bio">Hello! I'm Maggie, an experienced English tutor specializing in exam preparation and academic writing. I help students prepare for IELTS, TOEFL, and other English proficiency tests.</p>
+                            <p class="tutor-rate">$23 / HR</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav next" onclick="scrollTutors('right')">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="text-center mt-4 d-md-none">
+                <a href="find-tutor.html" class="btn btn-outline-primary btn-lg">See More Tutors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonial-section">
+        <div class="container" style="position: relative; z-index: 1;">
+            <p class="section-subtitle text-center">Testimonials</p>
+            <h2 class="section-title text-center">Hear what <span class="highlight">our students</span> have to say</h2>
+            <p class="text-center text-white-50 mb-3" style="opacity: 0.9;">We value the opinions of our students and teachers, this is the only way we can improve.</p>
+            
+            <div class="testimonials-slider-wrapper">
+                <button class="slider-nav prev" onclick="scrollTestimonials('left')" style="background: rgba(255, 174, 2, 0.2); color: var(--accent-yellow);">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="testimonial-quote">A great site, very easy to use and very nice support. My tutor has helped me improve my language skills significantly. Highly recommended!</p>
+                        <div class="testimonial-author">
+                            <img src="images/alexndar-testimonal-teacher.png" alt="Alexandra C." class="testimonial-avatar" />
+                            <div class="testimonial-author-info">
+                                <h5>Alexandra C.</h5>
+                                <p>English Teacher</p>
+                                <div class="testimonial-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="testimonial-quote">BLUEXEE has been a game-changer for my learning journey. The flexibility to schedule lessons around my work and the quality of tutors is outstanding. I've improved my German significantly in just 3 months!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--sky-blue), var(--navy-blue)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">MR</div>
+                            <div class="testimonial-author-info">
+                                <h5>Michael R.</h5>
+                                <p>Student</p>
+                                <div class="testimonial-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote testimonial-quote-icon"></i>
+                        <p class="testimonial-quote">As a busy professional, I needed a platform that could adapt to my schedule. BLUEXEE delivered exactly that. The one-on-one sessions are personalized and effective. Worth every penny!</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--sky-blue), var(--navy-blue)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">SL</div>
+                            <div class="testimonial-author-info">
+                                <h5>Sarah L.</h5>
+                                <p>Student</p>
+                                <div class="testimonial-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav next" onclick="scrollTestimonials('right')" style="background: rgba(255, 174, 2, 0.2); color: var(--accent-yellow);">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h2 class="section-title">Subscribe To Our <span class="text-dark">Newsletter</span></h2>
+            <p class="mb-4">Keep informed about our latest news, activities and developments. Sign up now and get regular updates.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="form-control" placeholder="Please specify a valid email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="images/bluexee-logo.png" alt="BLUEXEE" style="height: 30px; margin-right: 0.5rem;" />
+                    </div>
+                    <p class="text-white mb-3" style="opacity: 0.9;">Helping students learn better with expert tutors worldwide.</p>
+                    <h5>Contact Information</h5>
+                    <p class="text-white mb-2" style="opacity: 0.9;">📍 8 The Green, Dover, DE 19901, United States</p>
+                    <p class="text-white" style="opacity: 0.9;">✉️ info@bluexee.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-us">About Us</a>
+                    <a href="find-tutor.html">Find a Tutor</a>
+                    <a href="group-classes.html">Group Classes</a>
+                    <a href="index.html#how-it-works">How it works</a>
+                    <a href="mailto:info@bluexee.com">Contact Us</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Sign Up</a>
+                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="faqs.html">FAQs</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">Bluexee © Copyright 2024</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+</body>
+</html>
