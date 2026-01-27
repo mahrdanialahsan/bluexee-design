@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lessons - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .my-lessons-hero {
+            background: linear-gradient(135deg, rgba(151, 134, 108, 0.45) 0%, rgba(80, 90, 132, 0) 100%), url('../images/group-classes-cover.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .my-lessons-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .lesson-card {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+        
+        .lesson-card:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .student-profile-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-yellow);
+        }
+        
+        .student-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .lesson-date-time {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+            text-transform: capitalize;
+        }
+        
+        .lesson-subject {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy-blue);
+        }
+        
+        .lesson-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .status-paid {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-unpaid {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .status-cancelled {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+            border: none;
+        }
+        
+        .btn-enter-classroom {
+            background: var(--accent-yellow);
+            color: #000;
+        }
+        
+        .btn-enter-classroom:hover {
+            background: var(--orange-yellow);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-cancel:hover {
+            background: #c82333;
+            color: white;
+        }
+        
+        .btn-feedback {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .btn-feedback:hover {
+            background: var(--navy-blue);
+            color: white;
+        }
+        
+        .btn-feedback-submitted {
+            background: #10b981;
+            color: white;
+        }
+        
+        .nav-tabs {
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0;
+            color: var(--dark-gray);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: transparent;
+            color: var(--navy-blue);
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+        }
+        
+        .current-student-card {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .hours-remaining {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-top: 0.5rem;
+        }
+        
+        .price-per-lesson {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: 1rem;
+        }
+        
+        .no-lessons-message {
+            text-align: center;
+            padding: 3rem;
+            background: #f9fafb;
+            border-radius: 0;
+            border: 2px dashed #e5e7eb;
+        }
+        
+        .no-lessons-message i {
+            font-size: 4rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .my-lessons-title {
+                font-size: 2rem;
+            }
+            
+            .lesson-card {
+                padding: 1rem;
+            }
+            
+            .student-profile-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="../login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="../register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="../become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="my-lessons-hero">
+        <div class="container">
+            <h1 class="my-lessons-title">My Lessons</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Today's Lessons -->
+            <div id="todayLessons" class="mb-5">
+                <h3 class="mb-4">Today's Lessons</h3>
+                
+                <!-- Today's Lesson Card 1 -->
+                <div class="lesson-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-1 mb-3 mb-md-0 text-center">
+                            <img src="../images/tutor-thumbnail.jpg" alt="Student" class="student-profile-img">
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0 text-center">
+                            <h5 class="student-name">Emma Wilson</h5>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h5 class="lesson-date-time">Monday<br>01-26-2026 - 14:00</h5>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <h5 class="lesson-subject">English</h5>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <h5 class="lesson-date-time">14:00</h5>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <a href="#" target="_blank" class="btn action-btn btn-enter-classroom">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>Enter Classroom
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" id="lessonsTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="current-students-tab" data-bs-toggle="tab" data-bs-target="#current-students" type="button" role="tab">
+                        Current Students
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button" role="tab">
+                        Upcoming Lessons
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="past-tab" data-bs-toggle="tab" data-bs-target="#past" type="button" role="tab">
+                        Past Lessons
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#" role="tab">
+                        Calendar
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content mt-4" id="lessonsTabContent">
+                <!-- Current Students Tab -->
+                <div class="tab-pane fade show active" id="current-students" role="tabpanel">
+                    <!-- Current Student Card 1 -->
+                    <div class="current-student-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/tutor-thumbnail.jpg" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <h5 class="student-name">Emma Wilson</h5>
+                                <p class="hours-remaining">12 hours to schedule</p>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="price-per-lesson">$25.00</h5>
+                                <p class="price-label">Per Lesson</p>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="price-per-lesson">12</h5>
+                                <p class="price-label">Total Hours</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn action-btn btn-cancel">
+                                    <i class="bi bi-x-circle me-1"></i>Cancel Student
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Student Card 2 -->
+                    <div class="current-student-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/alexndar-testimonal-teacher.png" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <h5 class="student-name">James Anderson</h5>
+                                <p class="hours-remaining">8 hours to schedule</p>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="price-per-lesson">$30.00</h5>
+                                <p class="price-label">Per Lesson</p>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="price-per-lesson">8</h5>
+                                <p class="price-label">Total Hours</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn action-btn btn-cancel">
+                                    <i class="bi bi-x-circle me-1"></i>Cancel Student
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Lessons Tab -->
+                <div class="tab-pane fade" id="upcoming" role="tabpanel">
+                    <!-- Upcoming Lesson Card 1 -->
+                    <div class="lesson-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/tutor-thumbnail.jpg" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-7 mb-3 mb-md-0">
+                                <h5 class="student-name">Emma Wilson</h5>
+                                <h6 class="lesson-date-time">Wednesday, 01-28-2026, 15:00</h6>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn action-btn btn-cancel">
+                                    <i class="bi bi-x-circle me-1"></i>Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Lesson Card 2 -->
+                    <div class="lesson-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/alexndar-testimonal-teacher.png" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-7 mb-3 mb-md-0">
+                                <h5 class="student-name">James Anderson</h5>
+                                <h6 class="lesson-date-time">Friday, 01-30-2026, 16:00</h6>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="btn action-btn btn-cancel">
+                                    <i class="bi bi-x-circle me-1"></i>Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Lessons Tab -->
+                <div class="tab-pane fade" id="past" role="tabpanel">
+                    <!-- Past Lesson Card 1 -->
+                    <div class="lesson-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/tutor-thumbnail.jpg" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <h5 class="student-name">Emma Wilson</h5>
+                                <h6 class="lesson-date-time">Monday, 01-20-2026, 14:00</h6>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="lesson-price">Price<br><i class="bi bi-currency-dollar"></i>25.00</h5>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <span class="status-badge status-paid">Paid</span>
+                            </div>
+                            <div class="col-md-3 text-end">
+                                <button type="button" class="btn action-btn btn-feedback-submitted" data-bs-toggle="modal" data-bs-target="#viewFeedbackModal1">
+                                    <i class="bi bi-check-circle me-1"></i>Feedback Submitted
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Lesson Card 2 -->
+                    <div class="lesson-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/alexndar-testimonal-teacher.png" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <h5 class="student-name">James Anderson</h5>
+                                <h6 class="lesson-date-time">Friday, 01-18-2026, 16:00</h6>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="lesson-price">Price<br><i class="bi bi-currency-dollar"></i>30.00</h5>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <span class="status-badge status-paid">Paid</span>
+                            </div>
+                            <div class="col-md-3 text-end">
+                                <button type="button" class="btn action-btn btn-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal2">
+                                    <i class="bi bi-chat-left-text me-1"></i>Give Feedback
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Lesson Card 3 -->
+                    <div class="lesson-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-1 mb-3 mb-md-0 text-center">
+                                <img src="../images/tutor-thumbnail.jpg" alt="Student" class="student-profile-img">
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <h5 class="student-name">Sarah Johnson</h5>
+                                <h6 class="lesson-date-time">Wednesday, 01-15-2026, 10:00</h6>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <h5 class="lesson-price">Price<br><i class="bi bi-currency-dollar"></i>22.00</h5>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <span class="status-badge status-unpaid">Unpaid</span>
+                            </div>
+                            <div class="col-md-3 text-end">
+                                <button type="button" class="btn action-btn btn-feedback" data-bs-toggle="modal" data-bs-target="#feedbackModal3">
+                                    <i class="bi bi-chat-left-text me-1"></i>Give Feedback
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal2" tabindex="-1" aria-labelledby="feedbackModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel2">Give Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="feedbackForm2">
+                    <div class="modal-body">
+                        <p><strong>James Anderson</strong> - 01-18-2026</p>
+                        <div class="mb-3">
+                            <label for="feedbackText2" class="form-label">Feedback (Optional)</label>
+                            <textarea class="form-control" id="feedbackText2" name="feedback_text" rows="6" placeholder="Enter your feedback about the lesson content, student interaction, class participation, or suggestions for future lessons"></textarea>
+                        </div>
+                        <input type="hidden" name="booking_id" value="2">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-yellow">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal 3 -->
+    <div class="modal fade" id="feedbackModal3" tabindex="-1" aria-labelledby="feedbackModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel3">Give Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="feedbackForm3">
+                    <div class="modal-body">
+                        <p><strong>Sarah Johnson</strong> - 01-15-2026</p>
+                        <div class="mb-3">
+                            <label for="feedbackText3" class="form-label">Feedback (Optional)</label>
+                            <textarea class="form-control" id="feedbackText3" name="feedback_text" rows="6" placeholder="Enter your feedback about the lesson content, student interaction, class participation, or suggestions for future lessons"></textarea>
+                        </div>
+                        <input type="hidden" name="booking_id" value="3">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-yellow">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Feedback Modal -->
+    <div class="modal fade" id="viewFeedbackModal1" tabindex="-1" aria-labelledby="viewFeedbackModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewFeedbackModalLabel1">Teacher Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Emma Wilson</strong> - 01-20-2026</p>
+                    <div class="mb-3">
+                        <label class="form-label">Feedback</label>
+                        <div class="p-3 bg-light border" style="min-height: 100px;">
+                            Emma showed excellent progress in today's lesson. She was very engaged and asked thoughtful questions. I recommend continuing with more advanced grammar exercises in the next session.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="newsletter-title mb-3">Stay Updated</h2>
+                    <p class="newsletter-subtitle mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address">
+                            <button class="btn btn-yellow" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">About BLUEXEE</h5>
+                    <p class="footer-text">Connecting students with expert tutors worldwide for personalized online learning experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#about-us">About Us</a></li>
+                        <li><a href="../index.html#how-it-works">How it works</a></li>
+                        <li><a href="../find-tutor.html">Find a Tutor</a></li>
+                        <li><a href="../group-classes.html">Group Classes</a></li>
+                        <li><a href="../platform.html">Platform</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@bluexee.com">Contact Us</a></li>
+                        <li><a href="../faqs.html">FAQs</a></li>
+                        <li><a href="../terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-and-conditions.html">Pricing Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:info@bluexee.com">info@bluexee.com</a></li>
+                        <li><i class="bi bi-geo-alt"></i> 8 The Green, Dover, DE 19901, United States</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4 pt-4 border-top">
+                <p class="mb-0">&copy; 2026 BLUEXEE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../script.js"></script>
+    <script>
+        // Handle feedback form submission
+        document.getElementById('feedbackForm2').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedbackText = document.getElementById('feedbackText2').value;
+            
+            // Simulate feedback submission
+            alert('Feedback submitted successfully!');
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal2'));
+            modal.hide();
+            
+            // Update button to show "Feedback Submitted"
+            const btn = document.querySelector('[data-bs-target="#feedbackModal2"]');
+            btn.className = 'btn action-btn btn-feedback-submitted';
+            btn.innerHTML = '<i class="bi bi-check-circle me-1"></i>Feedback Submitted';
+        });
+        
+        document.getElementById('feedbackForm3').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedbackText = document.getElementById('feedbackText3').value;
+            
+            // Simulate feedback submission
+            alert('Feedback submitted successfully!');
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal3'));
+            modal.hide();
+            
+            // Update button to show "Feedback Submitted"
+            const btn = document.querySelector('[data-bs-target="#feedbackModal3"]');
+            btn.className = 'btn action-btn btn-feedback-submitted';
+            btn.innerHTML = '<i class="bi bi-check-circle me-1"></i>Feedback Submitted';
+        });
+    </script>
+</body>
+</html>

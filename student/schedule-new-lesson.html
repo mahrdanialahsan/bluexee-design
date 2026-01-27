@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule New Lesson - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .schedule-hero {
+            background: linear-gradient(135deg, rgba(151, 134, 108, 0.45) 0%, rgba(80, 90, 132, 0) 100%), url('../images/group-classes-cover.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .schedule-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .tutor-card {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+        
+        .tutor-card:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tutor-profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-yellow);
+        }
+        
+        .tutor-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tutor-hours {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+        
+        .price-per-lesson {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.25rem;
+        }
+        
+        .price-label {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+        
+        .tutor-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .action-btn-primary {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+        }
+        
+        .action-btn-primary:hover {
+            background: var(--orange-yellow);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn-secondary {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+        }
+        
+        .action-btn-secondary:hover {
+            background: var(--navy-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .action-btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .section-heading {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .no-tutors-message {
+            text-align: center;
+            padding: 3rem;
+            background: #f9fafb;
+            border-radius: 0;
+            border: 2px dashed #e5e7eb;
+        }
+        
+        .no-tutors-message i {
+            font-size: 4rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .no-tutors-message h4 {
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .no-tutors-message p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-title {
+                font-size: 2rem;
+            }
+            
+            .tutor-card {
+                padding: 1rem;
+            }
+            
+            .tutor-actions {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+            }
+            
+            .tutor-profile-img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="../login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="../register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="../become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="schedule-hero">
+        <div class="container">
+            <h1 class="schedule-title">Buy Hours</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <h3 class="section-heading">Select a tutor to buy hours</h3>
+            
+            <!-- Tutor Cards -->
+            <div id="tutorList">
+                <!-- Tutor Card 1 -->
+                <div class="tutor-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-1 mb-3 mb-md-0">
+                            <img src="../images/tutor-thumbnail.jpg" alt="Tutor" class="tutor-profile-img">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <h5 class="tutor-name">Sarah Johnson</h5>
+                            <p class="tutor-hours">12 hours to schedule</p>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <h5 class="price-per-lesson">$25.00</h5>
+                            <p class="price-label">Per Lesson</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tutor-actions">
+                                <a href="buy-hours.html?id=1&hour_id=101" class="btn action-btn action-btn-primary">
+                                    <i class="bi bi-calendar-check me-1"></i>Schedule Lesson
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-secondary">
+                                    <i class="bi bi-cart-plus me-1"></i>Buy Hours
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-outline">
+                                    <i class="bi bi-arrow-left-right me-1"></i>Transfer Credits
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 2 -->
+                <div class="tutor-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-1 mb-3 mb-md-0">
+                            <img src="../images/alexndar-testimonal-teacher.png" alt="Tutor" class="tutor-profile-img">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <h5 class="tutor-name">Alexander Martinez</h5>
+                            <p class="tutor-hours">8 hours to schedule</p>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <h5 class="price-per-lesson">$30.00</h5>
+                            <p class="price-label">Per Lesson</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tutor-actions">
+                                <a href="buy-hours.html?id=2&hour_id=102" class="btn action-btn action-btn-primary">
+                                    <i class="bi bi-calendar-check me-1"></i>Schedule Lesson
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-secondary">
+                                    <i class="bi bi-cart-plus me-1"></i>Buy Hours
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-outline">
+                                    <i class="bi bi-arrow-left-right me-1"></i>Transfer Credits
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 3 -->
+                <div class="tutor-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-1 mb-3 mb-md-0">
+                            <img src="../images/tutor-thumbnail.jpg" alt="Tutor" class="tutor-profile-img">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <h5 class="tutor-name">Emily Chen</h5>
+                            <p class="tutor-hours">20 hours to schedule</p>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <h5 class="price-per-lesson">$22.00</h5>
+                            <p class="price-label">Per Lesson</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tutor-actions">
+                                <a href="buy-hours.html?id=3&hour_id=103" class="btn action-btn action-btn-primary">
+                                    <i class="bi bi-calendar-check me-1"></i>Schedule Lesson
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-secondary">
+                                    <i class="bi bi-cart-plus me-1"></i>Buy Hours
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-outline">
+                                    <i class="bi bi-arrow-left-right me-1"></i>Transfer Credits
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tutor Card 4 -->
+                <div class="tutor-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-1 mb-3 mb-md-0">
+                            <img src="../images/alexndar-testimonal-teacher.png" alt="Tutor" class="tutor-profile-img">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-md-0">
+                            <h5 class="tutor-name">Michael Brown</h5>
+                            <p class="tutor-hours">5 hours to schedule</p>
+                        </div>
+                        <div class="col-md-2 mb-3 mb-md-0">
+                            <h5 class="price-per-lesson">$28.00</h5>
+                            <p class="price-label">Per Lesson</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tutor-actions">
+                                <a href="buy-hours.html?id=4&hour_id=104" class="btn action-btn action-btn-primary">
+                                    <i class="bi bi-calendar-check me-1"></i>Schedule Lesson
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-secondary">
+                                    <i class="bi bi-cart-plus me-1"></i>Buy Hours
+                                </a>
+                                <a href="#" class="btn action-btn action-btn-outline">
+                                    <i class="bi bi-arrow-left-right me-1"></i>Transfer Credits
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Tutors Message (Hidden by default, can be shown if no tutors) -->
+            <div class="no-tutors-message" id="noTutorsMessage" style="display: none;">
+                <i class="bi bi-inbox"></i>
+                <h4>No Tutors Available</h4>
+                <p>You don't have any purchased hours with tutors yet. Start by finding and purchasing hours from a tutor.</p>
+                <a href="../find-tutor.html" class="btn btn-yellow">
+                    <i class="bi bi-search me-2"></i>Find a Tutor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="newsletter-title mb-3">Stay Updated</h2>
+                    <p class="newsletter-subtitle mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address">
+                            <button class="btn btn-yellow" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">About BLUEXEE</h5>
+                    <p class="footer-text">Connecting students with expert tutors worldwide for personalized online learning experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#about-us">About Us</a></li>
+                        <li><a href="../index.html#how-it-works">How it works</a></li>
+                        <li><a href="../find-tutor.html">Find a Tutor</a></li>
+                        <li><a href="../group-classes.html">Group Classes</a></li>
+                        <li><a href="../platform.html">Platform</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@bluexee.com">Contact Us</a></li>
+                        <li><a href="../faqs.html">FAQs</a></li>
+                        <li><a href="../terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-and-conditions.html">Pricing Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:info@bluexee.com">info@bluexee.com</a></li>
+                        <li><i class="bi bi-geo-alt"></i> 8 The Green, Dover, DE 19901, United States</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4 pt-4 border-top">
+                <p class="mb-0">&copy; 2026 BLUEXEE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../script.js"></script>
+    <script>
+        // Check if there are any tutors, if not show the no tutors message
+        document.addEventListener('DOMContentLoaded', function() {
+            const tutorList = document.getElementById('tutorList');
+            const noTutorsMessage = document.getElementById('noTutorsMessage');
+            
+            // This would normally check if there are tutors from the backend
+            // For demo purposes, we'll keep the tutors visible
+            // To test the "no tutors" message, uncomment the following:
+            // tutorList.style.display = 'none';
+            // noTutorsMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

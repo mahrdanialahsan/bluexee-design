@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Hours - BLUEXEE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .buy-hours-hero {
+            background: linear-gradient(135deg, rgba(151, 134, 108, 0.45) 0%, rgba(80, 90, 132, 0) 100%), url('../images/group-classes-cover.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .buy-hours-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .timezone-selector {
+            background: white;
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .calendar-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .calendar-nav-btn {
+            background: var(--accent-yellow);
+            border: none;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calendar-nav-btn:hover {
+            background: var(--orange-yellow);
+            transform: translateY(-2px);
+        }
+        
+        .calendar-month {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-weight: 700;
+            color: var(--navy-blue);
+            padding: 0.75rem;
+            background: var(--bg-light);
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e5e7eb;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .calendar-day:hover {
+            border-color: var(--accent-yellow);
+            background: #fffbf0;
+        }
+        
+        .calendar-day.other-month {
+            color: #9ca3af;
+            background: #f9fafb;
+        }
+        
+        .calendar-day.today {
+            background: var(--light-blue);
+            border-color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        .calendar-day.available {
+            background: #d1fae5;
+            border-color: #10b981;
+        }
+        
+        .calendar-day.available:hover {
+            background: #a7f3d0;
+        }
+        
+        .calendar-day.booked {
+            background: #fee2e2;
+            border-color: #ef4444;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .time-slots {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .time-slot {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+            border-radius: 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .time-slot:hover {
+            background: var(--orange-yellow);
+            transform: translateY(-2px);
+        }
+        
+        .time-slot.selected {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .time-slot.booked {
+            background: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .booking-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--navy-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .buy-hours-title {
+                font-size: 2rem;
+            }
+            
+            .calendar-grid {
+                gap: 0.25rem;
+            }
+            
+            .calendar-day {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+            
+            .time-slot {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small>✉️ Email: info@bluexee.com</small>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <select class="form-select form-select-sm d-inline-block w-auto me-2 me-md-3" style="max-width: 120px;">
+                        <option>English</option>
+                        <option>Turkish</option>
+                        <option>German</option>
+                    </select>
+                    <a href="../login.html" class="text-white text-decoration-none me-2 me-md-3">Log In</a>
+                    <a href="../register.html" class="text-white text-decoration-none me-2 me-md-3">Register</a>
+                    <a href="../become-a-tutor.html" class="btn btn-sm btn-yellow text-dark">Become a Tutor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/bluexee-logo.png" alt="BLUEXEE" style="height: 40px; margin-right: 0.5rem;" /> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../find-tutor.html">Find a Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../group-classes.html">Group Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../platform.html">Platform</a>
+                    </li>
+                </ul>
+                <div class="nav-search-wrapper">
+                    <button class="nav-search-toggle btn btn-outline-primary" type="button" aria-label="Toggle search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="nav-search-input-wrap">
+                        <input type="search" class="form-control nav-search-input" placeholder="Search..." autocomplete="off">
+                        <button class="nav-search-close btn btn-link p-0" type="button" aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="buy-hours-hero">
+        <div class="container">
+            <h1 class="buy-hours-title">Schedule New Lesson</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Timezone Selector -->
+            <div class="timezone-selector">
+                <div class="row align-items-center">
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <label class="form-label fw-bold">Choose Your Timezone</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select class="form-select" id="timezoneSelect">
+                            <option value="" selected disabled>Select Timezone</option>
+                            <option value="America/New_York">(GMT -5:00) Eastern Time (US & Canada)</option>
+                            <option value="America/Chicago">(GMT -6:00) Central Time (US & Canada)</option>
+                            <option value="America/Denver">(GMT -7:00) Mountain Time (US & Canada)</option>
+                            <option value="America/Los_Angeles">(GMT -8:00) Pacific Time (US & Canada)</option>
+                            <option value="Europe/London">(GMT +0:00) London</option>
+                            <option value="Europe/Paris">(GMT +1:00) Paris</option>
+                            <option value="Europe/Berlin">(GMT +1:00) Berlin</option>
+                            <option value="Asia/Dubai">(GMT +4:00) Dubai</option>
+                            <option value="Asia/Karachi">(GMT +5:00) Karachi</option>
+                            <option value="Asia/Dhaka">(GMT +6:00) Dhaka</option>
+                            <option value="Asia/Bangkok">(GMT +7:00) Bangkok</option>
+                            <option value="Asia/Singapore">(GMT +8:00) Singapore</option>
+                            <option value="Asia/Tokyo">(GMT +9:00) Tokyo</option>
+                            <option value="Australia/Sydney">(GMT +10:00) Sydney</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Container -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="calendar-nav-btn" id="prevMonth">
+                        <i class="bi bi-chevron-left"></i> Previous
+                    </button>
+                    <div class="calendar-month" id="currentMonth">January 2026</div>
+                    <button class="calendar-nav-btn" id="nextMonth">
+                        Next <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    
+                    <div id="calendarDays"></div>
+                </div>
+                
+                <!-- Time Slots -->
+                <div class="time-slots" id="timeSlots" style="display: none;">
+                    <h5 class="mb-3">Available Time Slots</h5>
+                    <div id="timeSlotsList"></div>
+                </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary" id="bookingSummary" style="display: none;">
+                <h4 class="mb-4">Booking Summary</h4>
+                <div class="summary-item">
+                    <span>Tutor:</span>
+                    <span id="summaryTutor">John Doe</span>
+                </div>
+                <div class="summary-item">
+                    <span>Date:</span>
+                    <span id="summaryDate">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Time:</span>
+                    <span id="summaryTime">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Duration:</span>
+                    <span>60 minutes</span>
+                </div>
+                <div class="summary-item">
+                    <span>Price per Lesson:</span>
+                    <span id="summaryPrice">$25.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Total:</span>
+                    <span id="summaryTotal">$25.00</span>
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-yellow btn-lg w-100" id="bookLessonBtn">
+                        <i class="bi bi-calendar-check me-2"></i>Book Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="newsletter-title mb-3">Stay Updated</h2>
+                    <p class="newsletter-subtitle mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address">
+                            <button class="btn btn-yellow" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">About BLUEXEE</h5>
+                    <p class="footer-text">Connecting students with expert tutors worldwide for personalized online learning experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#about-us">About Us</a></li>
+                        <li><a href="../index.html#how-it-works">How it works</a></li>
+                        <li><a href="../find-tutor.html">Find a Tutor</a></li>
+                        <li><a href="../group-classes.html">Group Classes</a></li>
+                        <li><a href="../platform.html">Platform</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@bluexee.com">Contact Us</a></li>
+                        <li><a href="../faqs.html">FAQs</a></li>
+                        <li><a href="../terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-and-conditions.html">Pricing Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:info@bluexee.com">info@bluexee.com</a></li>
+                        <li><i class="bi bi-geo-alt"></i> 8 The Green, Dover, DE 19901, United States</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4 pt-4 border-top">
+                <p class="mb-0">&copy; 2026 BLUEXEE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../script.js"></script>
+    <script>
+        // Calendar functionality
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedTime = null;
+        
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = firstDay.getDay();
+            
+            const calendarDays = document.getElementById('calendarDays');
+            calendarDays.innerHTML = '';
+            
+            // Previous month days
+            const prevMonthLastDay = new Date(year, month, 0).getDate();
+            for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+                const day = prevMonthLastDay - i;
+                const dayElement = createDayElement(day, true);
+                calendarDays.appendChild(dayElement);
+            }
+            
+            // Current month days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const dayElement = createDayElement(day, false, date);
+                calendarDays.appendChild(dayElement);
+            }
+            
+            // Next month days
+            const totalCells = calendarDays.children.length;
+            const remainingCells = 42 - totalCells; // 6 rows * 7 days
+            for (let day = 1; day <= remainingCells && day <= 14; day++) {
+                const dayElement = createDayElement(day, true);
+                calendarDays.appendChild(dayElement);
+            }
+        }
+        
+        function createDayElement(day, isOtherMonth, date = null) {
+            const div = document.createElement('div');
+            div.className = 'calendar-day';
+            div.textContent = day;
+            
+            if (isOtherMonth) {
+                div.classList.add('other-month');
+            } else {
+                const today = new Date();
+                if (date && date.toDateString() === today.toDateString()) {
+                    div.classList.add('today');
+                }
+                
+                // Randomly mark some days as available (for demo)
+                if (Math.random() > 0.3) {
+                    div.classList.add('available');
+                } else if (Math.random() > 0.7) {
+                    div.classList.add('booked');
+                }
+                
+                div.addEventListener('click', function() {
+                    if (!this.classList.contains('booked')) {
+                        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                        this.classList.add('selected');
+                        selectedDate = date;
+                        showTimeSlots();
+                        updateBookingSummary();
+                    }
+                });
+            }
+            
+            return div;
+        }
+        
+        function showTimeSlots() {
+            const timeSlots = document.getElementById('timeSlots');
+            const timeSlotsList = document.getElementById('timeSlotsList');
+            timeSlots.style.display = 'block';
+            timeSlotsList.innerHTML = '';
+            
+            // Generate time slots (9 AM to 9 PM)
+            const slots = [];
+            for (let hour = 9; hour < 21; hour++) {
+                const time = `${hour.toString().padStart(2, '0')}:00 - ${(hour + 1).toString().padStart(2, '0')}:00`;
+                slots.push(time);
+            }
+            
+            slots.forEach(slot => {
+                const button = document.createElement('button');
+                button.className = 'time-slot';
+                button.textContent = slot;
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedTime = slot;
+                    updateBookingSummary();
+                });
+                timeSlotsList.appendChild(button);
+            });
+        }
+        
+        function updateBookingSummary() {
+            const summary = document.getElementById('bookingSummary');
+            if (selectedDate && selectedTime) {
+                summary.style.display = 'block';
+                document.getElementById('summaryDate').textContent = selectedDate.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('summaryTime').textContent = selectedTime;
+            }
+        }
+        
+        document.getElementById('prevMonth').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+        
+        document.getElementById('nextMonth').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+        
+        document.getElementById('bookLessonBtn').addEventListener('click', function() {
+            if (selectedDate && selectedTime) {
+                alert('Booking functionality would be implemented here. Date: ' + selectedDate.toLocaleDateString() + ', Time: ' + selectedTime);
+            } else {
+                alert('Please select a date and time slot.');
+            }
+        });
+        
+        // Initialize calendar
+        renderCalendar();
+    </script>
+</body>
+</html>

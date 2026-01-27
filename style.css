@@ -1701,6 +1701,84 @@
     color: white;
 }
 
+.price-dropdown-menu {
+    min-width: 280px;
+    padding: 1rem 0;
+    border-radius: 0;
+    border: 2px solid var(--accent-yellow);
+    background: white;
+}
+
+.price-range-display {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--navy-blue);
+}
+
+.price-range-slider {
+    position: relative;
+}
+
+.price-range-track-wrapper {
+    position: relative;
+}
+
+.price-range-input {
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+}
+
+.price-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-yellow);
+    border-radius: 0;
+    cursor: pointer;
+    border: 2px solid var(--accent-yellow);
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+}
+
+.price-range-input::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--accent-yellow);
+    border-radius: 0;
+    cursor: pointer;
+    border: 2px solid var(--accent-yellow);
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+}
+
+.price-range-input::-webkit-slider-runnable-track {
+    background: transparent;
+    height: 6px;
+}
+
+.price-range-input::-moz-range-track {
+    background: transparent;
+    height: 6px;
+}
+
+.price-sort-options .form-check-label {
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+.price-sort-options .form-check-input:checked + .form-check-label {
+    color: var(--navy-blue);
+    font-weight: 600;
+}
+
 .filters-section .btn-outline-light,
 .filters-section .btn-filter-clear {
     border-radius: 0;
@@ -1763,13 +1841,13 @@
 
     .tutor-image-section {
         flex-shrink: 0;
-        min-width: 120px;
+        min-width: 150px;
         text-align: center;
     }
     
     .tutor-profile-img {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
         border-radius: 50%;
         object-fit: cover;
         flex-shrink: 0;
@@ -1955,8 +2033,8 @@
     }
     
     .tutor-profile-img {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
     
         .tutor-booking-section {
