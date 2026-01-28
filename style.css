@@ -2154,9 +2154,131 @@
             height: 160px;
         }
         
+        .tutor-mobile-header {
+            /* border-bottom: 1px solid #e5e7eb; */
+            padding-bottom: 1rem;
+        }
+        
+        .tutor-mobile-profile-section {
+            display: block;
+        }
+        
+        .tutor-mobile-profile-section > .d-flex {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .tutor-profile-img-mobile {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-yellow);
+            flex-shrink: 0;
+        }
+        
+        .tutor-name-mobile {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .tutor-price-badge-mobile {
+            background: var(--light-blue);
+            padding: 0.75rem 1rem;
+            border-radius: 0;
+            text-align: center;
+            max-width: 120px;
+            flex-shrink: 0;
+        }
+        
+        .tutor-mobile-header .stars {
+            display: flex;
+            gap: 0.25rem;
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+        }
+        
+        /* Mobile layout: Image and stars on left (stacked), name/role/price on right */
+        .tutor-mobile-profile-section .flex-column {
+            flex-shrink: 0;
+            width: auto;
+        }
+        
+        .tutor-mobile-profile-section .flex-grow-1 {
+            min-width: 0;
+            flex: 1 1 auto;
+        }
+        
+        .tutor-price-badge {
+            background: var(--light-blue);
+            padding: 0.5rem 0.75rem;
+            border-radius: 0;
+            text-align: center;
+            min-width: 70px;
+        }
+        
+        .tutor-mobile-stats {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+        }
+        
+        .tutor-stats-mobile {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+        
+        .tutor-stats-mobile .small {
+            display: inline-flex !important;
+            align-items: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin: 0 !important;
+        }
+        
+        .tutor-mobile-stats .stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+        
+        .tutor-mobile-content {
+            border-bottom: none;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .tutor-mobile-content p:last-child {
+            margin-bottom: 0 !important;
+        }
+        
+        .tutor-mobile-video {
+            margin-top: 0 !important;
+            margin-bottom: 0.5rem !important;
+            padding-top: 0 !important;
+        }
+        
+        /* Remove gap between content and video on mobile */
+        .tutor-profile-section + .col-md-4 {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+        
+        .tutor-booking-section {
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+        
         .tutor-profile-section .d-flex {
             flex-direction: column;
             text-align: center;
+            margin-left: 10px;
         }
         
         .tutor-image-section {
@@ -2177,6 +2299,19 @@
         
         .tutor-image-section .tutor-stats .small {
             margin-bottom: 0 !important;
+        }
+        
+        /* Ensure all tutor-stats are side by side on mobile */
+        .tutor-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tutor-stats .small {
+            margin-bottom: 0 !important;
+            white-space: nowrap;
         }
 }
 
